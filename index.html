@@ -7,204 +7,312 @@
   <meta name="description" content="Ahlat'ta telefon tamiri ve ikinci el cep telefonu. ALTAY GSM - Hızlı ve güvenilir hizmet.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --orange: #e85d04;
       --orange-dark: #d45203;
-      --orange-light: #ff7b2c;
+      --orange-light: #ff8c42;
       --white: #ffffff;
-      --gray-100: #f8f9fa;
-      --gray-200: #e9ecef;
-      --gray-700: #495057;
-      --gray-900: #212529;
+      --gray-50: #fafbfc;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-600: #4b5563;
+      --gray-700: #374151;
+      --gray-900: #111827;
+      --whatsapp: #25d366;
+      --shadow: 0 4px 6px -1px rgba(0,0,0,0.08), 0 2px 4px -2px rgba(0,0,0,0.05);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.05);
+      --radius: 12px;
+      --radius-lg: 16px;
     }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    html {
-      scroll-behavior: smooth;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      font-family: 'Outfit', -apple-system, sans-serif;
       color: var(--gray-900);
       line-height: 1.6;
-      background: var(--white);
+      background: var(--gray-50);
     }
     .container {
-      max-width: 900px;
+      max-width: 960px;
       margin: 0 auto;
-      padding: 0 1.25rem;
+      padding: 0 1.5rem;
     }
     /* Header */
     header {
-      background: var(--orange);
+      background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
       color: var(--white);
-      padding: 1rem 0;
+      padding: 0.9rem 0;
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: 0 2px 10px rgba(232, 93, 4, 0.25);
+      box-shadow: var(--shadow-lg);
     }
     header .container {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 1rem;
     }
-    .logo {
-      font-size: 1.5rem;
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      color: inherit;
+    }
+    .logo-icon {
+      width: 42px;
+      height: 42px;
+      flex-shrink: 0;
+    }
+    .logo-text {
+      font-size: 1.35rem;
       font-weight: 700;
       letter-spacing: -0.02em;
     }
     nav ul {
       display: flex;
       list-style: none;
-      gap: 1.5rem;
+      gap: 1.75rem;
     }
     nav a {
       color: var(--white);
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 500;
       font-size: 0.95rem;
       opacity: 0.95;
       transition: opacity 0.2s;
     }
-    nav a:hover {
-      opacity: 1;
-    }
-    /* CTA Buttons - Always visible */
+    nav a:hover { opacity: 1; }
+    /* CTA Bar */
     .cta-bar {
-      background: var(--orange-dark);
-      padding: 0.75rem 0;
-      text-align: center;
+      background: var(--gray-900);
+      padding: 0.85rem 0;
     }
     .cta-bar .container {
       display: flex;
       justify-content: center;
-      gap: 1rem;
+      gap: 0.75rem;
       flex-wrap: wrap;
     }
     .btn {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 0.5rem;
-      padding: 0.6rem 1.25rem;
+      padding: 0.6rem 1rem;
       font-family: inherit;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       font-weight: 600;
       text-decoration: none;
-      border-radius: 8px;
-      transition: transform 0.15s, box-shadow 0.15s;
+      border-radius: var(--radius);
+      transition: all 0.2s;
       cursor: pointer;
       border: none;
+      white-space: nowrap;
     }
     .btn-whatsapp {
-      background: #25d366;
+      background: var(--whatsapp);
       color: white;
     }
     .btn-phone {
       background: var(--white);
       color: var(--orange);
+      border: 1px solid var(--gray-200);
     }
     .btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      box-shadow: var(--shadow-lg);
     }
     /* Hero */
     section.hero {
-      padding: 3rem 0;
+      padding: 4rem 0;
       text-align: center;
-      background: linear-gradient(180deg, var(--gray-100) 0%, var(--white) 100%);
+      background: linear-gradient(180deg, var(--white) 0%, var(--gray-50) 100%);
+      border-bottom: 1px solid var(--gray-200);
+    }
+    section.hero .hero-logo {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1rem;
+      opacity: 0.95;
     }
     section.hero h1 {
-      font-size: 2.25rem;
+      font-size: 2.5rem;
       font-weight: 700;
       color: var(--orange);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.03em;
     }
     section.hero p {
       font-size: 1.15rem;
-      color: var(--gray-700);
-      max-width: 500px;
-      margin: 0 auto 1.5rem;
+      color: var(--gray-600);
+      max-width: 480px;
+      margin: 0 auto 1.75rem;
+      line-height: 1.7;
     }
     /* Sections */
     section {
-      padding: 2.5rem 0;
+      padding: 3rem 0;
     }
     section:nth-child(even) {
-      background: var(--gray-100);
+      background: var(--white);
     }
     h2 {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       font-weight: 700;
-      color: var(--orange);
-      margin-bottom: 1rem;
-      padding-bottom: 0.5rem;
+      color: var(--gray-900);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    h2::before {
+      content: '';
+      width: 4px;
+      height: 1.4em;
+      background: linear-gradient(180deg, var(--orange), var(--orange-light));
+      border-radius: 2px;
     }
     section p, section ul {
-      color: var(--gray-700);
+      color: var(--gray-600);
       margin-bottom: 0.75rem;
     }
-    ul {
-      padding-left: 1.25rem;
-      margin-bottom: 1rem;
+    /* Service cards */
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
     }
-    li {
-      margin-bottom: 0.4rem;
+    .service-card {
+      background: var(--white);
+      padding: 1.25rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--gray-200);
+      transition: all 0.2s;
+      text-align: center;
     }
-    /* Contact Section */
-    .contact-grid {
+    .service-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--orange-light);
+    }
+    .service-icon {
+      width: 40px;
+      height: 40px;
+      margin: 0 auto 0.75rem;
+      color: var(--orange);
+    }
+    .service-card span {
+      font-weight: 600;
+      color: var(--gray-900);
+    }
+    /* Contact / Map */
+    .contact-section {
       display: grid;
       gap: 1.5rem;
-      margin-top: 1rem;
+    }
+    .contact-grid {
+      display: grid;
+      gap: 1rem;
     }
     .contact-item {
       display: flex;
       align-items: flex-start;
       gap: 0.75rem;
+      padding: 0.75rem;
+      background: var(--gray-50);
+      border-radius: var(--radius);
     }
     .contact-item strong {
       color: var(--gray-900);
-      min-width: 90px;
+      min-width: 80px;
+    }
+    .contact-item a {
+      color: var(--orange);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .contact-item a:hover { text-decoration: underline; }
+    .map-container {
+      margin-top: 1rem;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--gray-200);
+      aspect-ratio: 16/9;
+      min-height: 280px;
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
     }
     .map-link {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      color: var(--orange);
+      margin-top: 1rem;
+      padding: 0.75rem 1.25rem;
+      background: var(--orange);
+      color: white !important;
       font-weight: 600;
       text-decoration: none;
-      margin-top: 0.5rem;
-      transition: color 0.2s;
+      border-radius: var(--radius);
+      transition: all 0.2s;
     }
     .map-link:hover {
-      color: var(--orange-dark);
+      background: var(--orange-dark);
+      transform: translateY(-2px);
     }
     /* Footer */
     footer {
       background: var(--gray-900);
       color: var(--gray-200);
-      padding: 1.5rem 0;
+      padding: 2rem 0;
       text-align: center;
       font-size: 0.9rem;
     }
-    footer .btn {
-      margin: 0.5rem;
+    footer .logo-wrap {
+      justify-content: center;
+      margin-bottom: 1rem;
     }
-    @media (max-width: 600px) {
-      nav ul { gap: 0.75rem; }
-      .logo { font-size: 1.25rem; }
-      section.hero h1 { font-size: 1.75rem; }
+    footer .logo-icon { width: 36px; height: 36px; }
+    footer .logo-text { font-size: 1.1rem; }
+    footer p {
+      margin-bottom: 1rem;
+      color: var(--gray-200);
+    }
+    footer .cta-wrap {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    @media (max-width: 640px) {
+      nav ul { gap: 1rem; font-size: 0.9rem; }
+      .logo-text { font-size: 1.15rem; }
+      section.hero h1 { font-size: 1.9rem; }
+      .cta-bar .container { flex-direction: column; }
+      .btn { width: 100%; }
     }
   </style>
 </head>
 <body>
   <header>
     <div class="container">
-      <span class="logo">ALTAY GSM</span>
+      <a href="#ana-sayfa" class="logo-wrap">
+        <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="8" fill="rgba(255,255,255,0.2)"/>
+          <path d="M28 26.5v-9a2 2 0 0 0-2-2H14a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2z" stroke="white" stroke-width="1.5" fill="none"/>
+          <path d="M17 12h6" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span class="logo-text">ALTAY GSM</span>
+      </a>
       <nav>
         <ul>
           <li><a href="#ana-sayfa">Ana Sayfa</a></li>
@@ -218,8 +326,8 @@
 
   <div class="cta-bar">
     <div class="container">
-      <a href="https://wa.me/905336176468" class="btn btn-whatsapp" target="_blank" rel="noopener">📱 WhatsApp (0533)</a>
-      <a href="https://wa.me/905537030635" class="btn btn-whatsapp" target="_blank" rel="noopener">📱 WhatsApp (0553)</a>
+      <a href="https://wa.me/905336176468" class="btn btn-whatsapp" target="_blank" rel="noopener">📱 WhatsApp 0533 617 6468</a>
+      <a href="https://wa.me/905537030635" class="btn btn-whatsapp" target="_blank" rel="noopener">📱 WhatsApp 0553 703 0635</a>
       <a href="tel:+905336176468" class="btn btn-phone">📞 0533 617 6468</a>
       <a href="tel:+905537030635" class="btn btn-phone">📞 0553 703 0635</a>
     </div>
@@ -228,6 +336,14 @@
   <main>
     <section id="ana-sayfa" class="hero">
       <div class="container">
+        <svg class="hero-logo" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="80" height="80" rx="16" fill="url(#grad)"/>
+          <path d="M56 53v-18a4 4 0 0 0-4-4H28a4 4 0 0 0-4 4v18a4 4 0 0 0 4 4h24a4 4 0 0 0 4-4z" stroke="white" stroke-width="2.5" fill="none"/>
+          <path d="M34 24h12" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+          <defs><linearGradient id="grad" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#e85d04"/><stop offset="1" stop-color="#d45203"/>
+          </linearGradient></defs>
+        </svg>
         <h1>ALTAY GSM</h1>
         <p>Ahlat'ta telefon tamiri ve ikinci el cep telefonu için güvenilir adresiniz.</p>
         <a href="https://wa.me/905336176468" class="btn btn-whatsapp" target="_blank" rel="noopener">WhatsApp ile Yaz</a>
@@ -237,14 +353,40 @@
     <section id="hizmetler">
       <div class="container">
         <h2>Hizmetler</h2>
-        <ul>
-          <li>Telefon ekran değişimi</li>
-          <li>Pil değişimi</li>
-          <li>Yazılım sorunları</li>
-          <li>Sıvı teması tamiri</li>
-          <li>Tüm marka ve modeller</li>
-        </ul>
-        <p>Sorularınız için hemen WhatsApp veya telefon ile ulaşın.</p>
+        <div class="service-grid">
+          <div class="service-card">
+            <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="5" y="2" width="14" height="20" rx="2"/>
+              <path d="M12 18h.01"/>
+            </svg>
+            <span>Ekran Değişimi</span>
+          </div>
+          <div class="service-card">
+            <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+            <span>Pil Değişimi</span>
+          </div>
+          <div class="service-card">
+            <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+            <span>Yazılım</span>
+          </div>
+          <div class="service-card">
+            <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+            </svg>
+            <span>Sıvı Temas</span>
+          </div>
+          <div class="service-card">
+            <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2v4m0 12v4M2 12h4m12 0h4m-3.5-8.5l2.5 2.5m-13 0l2.5-2.5m10.5 10.5l2.5 2.5m-13 0l2.5 2.5"/>
+            </svg>
+            <span>Tüm Markalar</span>
+          </div>
+        </div>
+        <p style="margin-top:1.5rem;">Sorularınız için hemen WhatsApp veya telefon ile ulaşın.</p>
       </div>
     </section>
 
@@ -253,44 +395,55 @@
         <h2>İkinci El</h2>
         <p>İkinci el cep telefonu alım satım ve değişim hizmeti veriyoruz.</p>
         <p>Stok ve fiyat bilgisi için bizi arayın veya WhatsApp üzerinden yazın.</p>
-        <a href="https://wa.me/905336176468" class="btn btn-whatsapp" target="_blank" rel="noopener">Stok için WhatsApp</a>
+        <a href="https://wa.me/905336176468" class="btn btn-whatsapp" target="_blank" rel="noopener">Stok için WhatsApp 0533 617 6468</a>
       </div>
     </section>
 
     <section id="iletisim">
       <div class="container">
         <h2>İletişim & Konum</h2>
-        <div class="contact-grid">
-          <div class="contact-item">
-            <strong>Adres:</strong>
-            <span>Yukarı karşı Tatvan durağı yanı</span>
+        <div class="contact-section">
+          <div class="contact-grid">
+            <div class="contact-item">
+              <strong>Adres:</strong>
+              <span>Yukarı karşı Tatvan durağı yanı, Ahlat</span>
+            </div>
+            <div class="contact-item">
+              <strong>Telefon:</strong>
+              <span>
+                <a href="tel:+905336176468">0533 617 6468</a> —
+                <a href="tel:+905537030635">0553 703 0635</a>
+              </span>
+            </div>
           </div>
-          <div class="contact-item">
-            <strong>Bölge:</strong>
-            <span>Ahlat</span>
+          <div class="map-container">
+            <iframe src="https://www.google.com/maps?q=Yukarı+karşı+Tatvan+durağı+yanı+Ahlat+Bitlis&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
-          <div class="contact-item">
-            <strong>Telefon:</strong>
-            <span>
-              <a href="tel:+905336176468">0533 617 6468</a> —
-              <a href="tel:+905537030635">0553 703 0635</a>
-            </span>
-          </div>
+          <a href="https://share.google/fAx4GyT1DPJ9yIWLa" class="map-link" target="_blank" rel="noopener">
+            📍 Konumumuzu Haritada Aç
+          </a>
         </div>
-        <a href="https://www.google.com/maps/search/Yukarı+karşı+Tatvan+durağı+yanı+Ahlat" class="map-link" target="_blank" rel="noopener">
-          📍 Haritada Göster
-        </a>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="container">
-      <p><strong>ALTAY GSM</strong> — Yukarı karşı Tatvan durağı yanı, Ahlat</p>
-      <a href="https://wa.me/905336176468" class="btn btn-whatsapp" target="_blank" rel="noopener">WhatsApp 0533</a>
-      <a href="https://wa.me/905537030635" class="btn btn-whatsapp" target="_blank" rel="noopener">WhatsApp 0553</a>
-      <a href="tel:+905336176468" class="btn btn-phone">0533 617 6468</a>
-      <a href="tel:+905537030635" class="btn btn-phone">0553 703 0635</a>
+      <a href="#ana-sayfa" class="logo-wrap">
+        <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="8" fill="rgba(255,255,255,0.15)"/>
+          <path d="M28 26.5v-9a2 2 0 0 0-2-2H14a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2z" stroke="white" stroke-width="1.5" fill="none"/>
+          <path d="M17 12h6" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span class="logo-text">ALTAY GSM</span>
+      </a>
+      <p>Yukarı karşı Tatvan durağı yanı, Ahlat</p>
+      <div class="cta-wrap">
+        <a href="https://wa.me/905336176468" class="btn btn-whatsapp" target="_blank" rel="noopener">WhatsApp 0533 617 6468</a>
+        <a href="https://wa.me/905537030635" class="btn btn-whatsapp" target="_blank" rel="noopener">WhatsApp 0553 703 0635</a>
+        <a href="tel:+905336176468" class="btn btn-phone">0533 617 6468</a>
+        <a href="tel:+905537030635" class="btn btn-phone">0553 703 0635</a>
+      </div>
     </div>
   </footer>
 </body>
