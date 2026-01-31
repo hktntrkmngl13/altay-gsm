@@ -64,9 +64,11 @@
       text-decoration: none;
       color: inherit;
     }
-    .logo-icon {
-      width: 42px;
+    .logo-icon, .logo-img {
       height: 42px;
+      width: auto;
+      max-width: 140px;
+      object-fit: contain;
       flex-shrink: 0;
     }
     .logo-text {
@@ -183,11 +185,13 @@
     #ikinci-el.section-bg::before { background-image: url(images/magaza-1.jpg); }
     section.hero .container { position: relative; z-index: 1; }
     section.hero .hero-logo {
-      width: 72px;
-      height: 72px;
+      width: auto;
+      height: 100px;
+      max-width: 200px;
       margin: 0 auto 1rem;
       display: block;
       opacity: 0.95;
+      object-fit: contain;
     }
     section.hero h1 {
       font-size: 2.1rem;
@@ -466,7 +470,7 @@
       justify-content: center;
       margin-bottom: 1rem;
     }
-    footer .logo-icon { width: 36px; height: 36px; }
+    footer .logo-img.footer-logo { height: 44px; }
     footer .logo-text { font-size: 1.1rem; }
     footer p {
       margin-bottom: 1rem;
@@ -490,7 +494,7 @@
         filter: blur(2px);
       }
       section.hero::after { background: rgba(0,0,0,0.88); }
-      section.hero .hero-logo { width: 56px; height: 56px; }
+      section.hero .hero-logo { height: 72px; max-width: 160px; }
       section.hero h1 { font-size: 1.75rem; }
       section.hero .hero-cta { flex-direction: column; }
       section.hero .hero-cta .btn { width: 100%; min-width: 100%; }
@@ -505,13 +509,7 @@
   <header>
     <div class="container">
       <a href="#ana-sayfa" class="logo-wrap">
-        <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="40" height="40" rx="10" fill="rgba(255,255,255,0.15)"/>
-          <rect x="10" y="4" width="20" height="32" rx="3" stroke="white" stroke-width="1.8" fill="none"/>
-          <rect x="17" y="2" width="6" height="2" rx="1" fill="white"/>
-          <circle cx="20" cy="31" r="2" fill="white" fill-opacity="0.9"/>
-        </svg>
-        <span class="logo-text">ALTAY GSM</span>
+        <img src="images/logo.png" alt="ALTAY GSM" class="logo-img">
       </a>
       <nav>
         <ul>
@@ -536,12 +534,7 @@
   <main>
     <section id="ana-sayfa" class="hero">
       <div class="container">
-        <svg class="hero-logo" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="80" height="80" rx="16" fill="rgba(255,255,255,0.12)"/>
-          <rect x="20" y="8" width="40" height="64" rx="6" stroke="white" stroke-width="2" fill="none"/>
-          <rect x="34" y="4" width="12" height="4" rx="2" fill="white"/>
-          <circle cx="40" cy="62" r="4" fill="white" fill-opacity="0.9"/>
-        </svg>
+        <img src="images/logo.png" alt="ALTAY GSM" class="hero-logo">
         <h1>Hızlı Telefon Tamiri<br>& Güvenilir İkinci El</h1>
         <p class="hero-desc">Ekran, pil, yazılım ve sıvı temas onarımı<br>Sıfır telefon, ikinci el alım-satım, takas ve aksesuar</p>
         <div class="hero-cta">
@@ -638,13 +631,7 @@
   <footer>
     <div class="container">
       <a href="#ana-sayfa" class="logo-wrap">
-        <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="40" height="40" rx="10" fill="rgba(255,255,255,0.15)"/>
-          <rect x="10" y="4" width="20" height="32" rx="3" stroke="white" stroke-width="1.8" fill="none"/>
-          <rect x="17" y="2" width="6" height="2" rx="1" fill="white"/>
-          <circle cx="20" cy="31" r="2" fill="white" fill-opacity="0.9"/>
-        </svg>
-        <span class="logo-text">ALTAY GSM</span>
+        <img src="images/logo.png" alt="ALTAY GSM" class="logo-img footer-logo">
       </a>
       <p>Yukarı Çarşı Tatvan Durağı Yanı Ahlat</p>
       <div class="cta-wrap">
