@@ -7,32 +7,34 @@
   <meta name="description" content="Ahlat'ta telefon tamiri ve ikinci el cep telefonu. ALTAY GSM - Hızlı ve güvenilir hizmet.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --orange: #e85d04;
-      --orange-dark: #d45203;
-      --orange-light: #ff8c42;
+      --orange: #c55100;
+      --orange-dark: #a84500;
+      --orange-light: #e85d04;
       --white: #ffffff;
-      --gray-50: #fafbfc;
-      --gray-100: #f3f4f6;
-      --gray-200: #e5e7eb;
-      --gray-600: #4b5563;
-      --gray-700: #374151;
-      --gray-900: #111827;
-      --whatsapp: #25d366;
-      --shadow: 0 4px 6px -1px rgba(0,0,0,0.08), 0 2px 4px -2px rgba(0,0,0,0.05);
-      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.05);
-      --radius: 12px;
-      --radius-lg: 16px;
+      --gray-50: #fafafa;
+      --gray-100: #f4f4f5;
+      --gray-200: #e4e4e7;
+      --gray-500: #71717a;
+      --gray-600: #52525b;
+      --gray-700: #3f3f46;
+      --gray-900: #18181b;
+      --whatsapp: #22c55e;
+      --shadow: 0 1px 3px rgba(0,0,0,0.06);
+      --shadow-sm: 0 2px 4px rgba(0,0,0,0.04);
+      --radius: 8px;
+      --radius-lg: 12px;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: 'Outfit', -apple-system, sans-serif;
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       color: var(--gray-900);
       line-height: 1.6;
-      background: var(--gray-50);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
     }
     .container {
       max-width: 960px;
@@ -41,13 +43,13 @@
     }
     /* Header */
     header {
-      background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+      background: var(--gray-900);
       color: var(--white);
-      padding: 0.9rem 0;
+      padding: 1rem 0;
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: var(--shadow-lg);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
     header .container {
       display: flex;
@@ -88,8 +90,9 @@
     nav a:hover { opacity: 1; }
     /* CTA Bar */
     .cta-bar {
-      background: var(--gray-900);
-      padding: 0.85rem 0;
+      background: var(--gray-100);
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--gray-200);
     }
     .cta-bar .container {
       display: flex;
@@ -119,18 +122,17 @@
     }
     .btn-phone {
       background: var(--white);
-      color: var(--orange);
+      color: var(--gray-700);
       border: 1px solid var(--gray-200);
     }
     .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-lg);
+      opacity: 0.9;
     }
     /* Hero */
     section.hero {
-      padding: 4rem 0;
+      padding: 3.5rem 0;
       text-align: center;
-      background: linear-gradient(180deg, var(--white) 0%, var(--gray-50) 100%);
+      background: var(--gray-50);
       border-bottom: 1px solid var(--gray-200);
     }
     section.hero .hero-logo {
@@ -140,11 +142,11 @@
       opacity: 0.95;
     }
     section.hero h1 {
-      font-size: 2.5rem;
+      font-size: 2.25rem;
       font-weight: 700;
-      color: var(--orange);
+      color: var(--gray-900);
       margin-bottom: 0.75rem;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.02em;
     }
     section.hero p {
       font-size: 1.15rem;
@@ -158,7 +160,7 @@
       padding: 3rem 0;
     }
     section:nth-child(even) {
-      background: var(--white);
+      background: var(--gray-50);
     }
     h2 {
       font-size: 1.6rem;
@@ -171,9 +173,9 @@
     }
     h2::before {
       content: '';
-      width: 4px;
-      height: 1.4em;
-      background: linear-gradient(180deg, var(--orange), var(--orange-light));
+      width: 3px;
+      height: 1.3em;
+      background: var(--orange);
       border-radius: 2px;
     }
     section p, section ul {
@@ -191,15 +193,13 @@
       background: var(--white);
       padding: 1.25rem;
       border-radius: var(--radius);
-      box-shadow: var(--shadow);
+      box-shadow: var(--shadow-sm);
       border: 1px solid var(--gray-200);
-      transition: all 0.2s;
+      transition: border-color 0.2s;
       text-align: center;
     }
     .service-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--orange-light);
+      border-color: var(--orange);
     }
     .service-icon {
       width: 40px;
@@ -242,33 +242,36 @@
       margin-top: 1rem;
       border-radius: var(--radius-lg);
       overflow: hidden;
-      box-shadow: var(--shadow-lg);
       border: 1px solid var(--gray-200);
       aspect-ratio: 16/9;
-      min-height: 280px;
+      min-height: 260px;
     }
     .map-container iframe {
       width: 100%;
       height: 100%;
       border: none;
     }
+    .map-links {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
     .map-link {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      margin-top: 1rem;
-      padding: 0.75rem 1.25rem;
-      background: var(--orange);
+      padding: 0.65rem 1.25rem;
+      background: var(--gray-900);
       color: white !important;
-      font-weight: 600;
+      font-weight: 500;
+      font-size: 0.9rem;
       text-decoration: none;
       border-radius: var(--radius);
-      transition: all 0.2s;
+      transition: opacity 0.2s;
     }
-    .map-link:hover {
-      background: var(--orange-dark);
-      transform: translateY(-2px);
-    }
+    .map-link:hover { opacity: 0.9; }
+    .map-link.map-link-apple { background: var(--gray-700); }
     /* Footer */
     footer {
       background: var(--gray-900);
@@ -299,6 +302,8 @@
       section.hero h1 { font-size: 1.9rem; }
       .cta-bar .container { flex-direction: column; }
       .btn { width: 100%; }
+      .map-links { flex-direction: column; }
+      .map-link { justify-content: center; }
     }
   </style>
 </head>
@@ -406,7 +411,7 @@
           <div class="contact-grid">
             <div class="contact-item">
               <strong>Adres:</strong>
-              <span>Yukarı karşı Tatvan durağı yanı, Ahlat</span>
+              <span>Yukarı Çarşı Tatvan Durağı Yanı Ahlat</span>
             </div>
             <div class="contact-item">
               <strong>Telefon:</strong>
@@ -417,11 +422,12 @@
             </div>
           </div>
           <div class="map-container">
-            <iframe src="https://www.google.com/maps?q=Yukarı+karşı+Tatvan+durağı+yanı+Ahlat+Bitlis&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps?q=Yukar%C4%B1+%C3%87ar%C5%9F%C4%B1+Tatvan+Dura%C4%9F%C4%B1+Yan%C4%B1+Ahlat+Bitlis&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
-          <a href="https://share.google/fAx4GyT1DPJ9yIWLa" class="map-link" target="_blank" rel="noopener">
-            📍 Konumumuzu Haritada Aç
-          </a>
+          <div class="map-links">
+            <a href="https://www.google.com/maps/search/?api=1&query=Yukar%C4%B1+%C3%87ar%C5%9F%C4%B1+Tatvan+Dura%C4%9F%C4%B1+Yan%C4%B1+Ahlat+Bitlis" id="map-link-google" class="map-link" target="_blank" rel="noopener noreferrer">📍 Google Haritalar</a>
+            <a href="https://maps.apple.com/?q=Yukar%C4%B1+%C3%87ar%C5%9F%C4%B1+Tatvan+Dura%C4%9F%C4%B1+Yan%C4%B1+Ahlat+Bitlis" id="map-link-apple" class="map-link map-link-apple" target="_blank" rel="noopener noreferrer">📍 Apple Haritalar</a>
+          </div>
         </div>
       </div>
     </section>
@@ -437,7 +443,7 @@
         </svg>
         <span class="logo-text">ALTAY GSM</span>
       </a>
-      <p>Yukarı karşı Tatvan durağı yanı, Ahlat</p>
+      <p>Yukarı Çarşı Tatvan Durağı Yanı Ahlat</p>
       <div class="cta-wrap">
         <a href="https://wa.me/905336176468" class="btn btn-whatsapp" target="_blank" rel="noopener">WhatsApp 0533 617 6468</a>
         <a href="https://wa.me/905537030635" class="btn btn-whatsapp" target="_blank" rel="noopener">WhatsApp 0553 703 0635</a>
