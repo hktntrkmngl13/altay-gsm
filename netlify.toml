@@ -1,0 +1,9 @@
+[build]
+  publish = "."
+  command = "echo 'Static site - no build needed'"
+
+[[redirects]]
+  from = "https://www.altaygsm.com.tr/*"
+  to = "https://altaygsm.com.tr/:splat"
+  status = 301
+  force = true
