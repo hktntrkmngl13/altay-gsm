@@ -128,6 +128,29 @@
     .btn:hover {
       opacity: 0.9;
     }
+    /* Section with subtle photo background */
+    .section-bg {
+      position: relative;
+      isolation: isolate;
+    }
+    .section-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: -2;
+    }
+    .section-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--white);
+      opacity: 0.88;
+      z-index: -1;
+    }
+    .section-bg.section-bg-alt::after { background: var(--gray-50); }
     /* Hero */
     section.hero {
       padding: 3.5rem 0;
@@ -135,6 +158,9 @@
       background: var(--gray-50);
       border-bottom: 1px solid var(--gray-200);
     }
+    section.hero.section-bg::before { background-image: url(images/magaza-1.jpg); }
+    #hizmetler.section-bg::before { background-image: url(images/magaza-2.jpg); }
+    #ikinci-el.section-bg::before { background-image: url(images/magaza-1.jpg); }
     section.hero .hero-logo {
       width: 80px;
       height: 80px;
@@ -212,34 +238,38 @@
       font-weight: 600;
       color: var(--gray-900);
     }
-    /* Brand logos */
-    .brands-section {
-      text-align: center;
-      padding: 2rem 0;
-      background: var(--white);
-      border-top: 1px solid var(--gray-200);
-    }
-    .brands-section p {
-      font-size: 0.9rem;
-      color: var(--gray-500);
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
+    /* Brand logos - headless, below Hizmetler */
     .brands-logos {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 2.5rem;
+      gap: 2rem;
       flex-wrap: wrap;
+      padding-top: 2rem;
+      margin-top: 2rem;
+      border-top: 1px solid var(--gray-200);
     }
     .brand-logo {
-      height: 32px;
+      height: 28px;
       width: auto;
       opacity: 0.6;
-      transition: opacity 0.2s;
+      filter: grayscale(100%);
+      transition: opacity 0.25s, filter 0.25s;
     }
-    .brand-logo:hover { opacity: 1; }
+    .brand-logo:hover {
+      opacity: 1;
+      filter: grayscale(0%);
+    }
+    @media (max-width: 640px) {
+      .brands-logos {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        place-items: center;
+        padding-top: 1.5rem;
+        margin-top: 1.5rem;
+      }
+    }
     /* Contact / Map */
     .contact-section {
       display: grid;
@@ -301,29 +331,8 @@
     }
     .map-link:hover { opacity: 0.9; }
     .map-link.map-link-apple { background: var(--gray-700); }
-    /* Gallery */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.25rem;
-      margin-top: 1.5rem;
-    }
-    .gallery-item {
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
-      border: 1px solid var(--gray-200);
-      aspect-ratio: 4/3;
-    }
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    @media (max-width: 640px) {
-      .gallery-grid { grid-template-columns: 1fr; }
-    }
+    /* Galeri - subtle bg, no photo grid */
+    #galeri.section-bg::before { background-image: url(images/magaza-2.jpg); }
     /* Footer */
     footer {
       background: var(--gray-900);
@@ -393,7 +402,7 @@
   </div>
 
   <main>
-    <section id="ana-sayfa" class="hero">
+    <section id="ana-sayfa" class="hero section-bg">
       <div class="container">
         <svg class="hero-logo" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="80" height="80" rx="16" fill="url(#grad)"/>
@@ -410,7 +419,7 @@
       </div>
     </section>
 
-    <section id="hizmetler">
+    <section id="hizmetler" class="section-bg section-bg-alt">
       <div class="container">
         <h2>Hizmetler</h2>
         <div class="service-grid">
@@ -447,20 +456,17 @@
           </div>
         </div>
         <p style="margin-top:1.5rem;">Sorularınız için hemen WhatsApp veya telefon ile ulaşın.</p>
-        <div class="brands-section">
-          <p>Çalıştığımız Markalar</p>
-          <div class="brands-logos">
-            <img src="https://cdn.simpleicons.org/apple/000000" alt="Apple" class="brand-logo" width="28" height="28">
-            <img src="https://cdn.simpleicons.org/samsung/000000" alt="Samsung" class="brand-logo" width="28" height="28">
-            <img src="https://cdn.simpleicons.org/xiaomi/FF6900" alt="Xiaomi" class="brand-logo" width="28" height="28">
-            <img src="https://cdn.simpleicons.org/huawei/CF0A2C" alt="Huawei" class="brand-logo" width="28" height="28">
-            <img src="https://cdn.simpleicons.org/oppo/0F9D58" alt="OPPO" class="brand-logo" width="28" height="28">
-          </div>
+        <div class="brands-logos">
+          <img src="https://cdn.simpleicons.org/apple/000000" alt="Apple" class="brand-logo" width="28" height="28">
+          <img src="https://cdn.simpleicons.org/samsung/1428a0" alt="Samsung" class="brand-logo" width="28" height="28">
+          <img src="https://cdn.simpleicons.org/xiaomi/FF6900" alt="Xiaomi" class="brand-logo" width="28" height="28">
+          <img src="https://cdn.simpleicons.org/huawei/CF0A2C" alt="Huawei" class="brand-logo" width="28" height="28">
+          <img src="https://cdn.simpleicons.org/oppo/0F9D58" alt="OPPO" class="brand-logo" width="28" height="28">
         </div>
       </div>
     </section>
 
-    <section id="ikinci-el">
+    <section id="ikinci-el" class="section-bg">
       <div class="container">
         <h2>İkinci El</h2>
         <p>İkinci el cep telefonu alım satım ve değişim hizmeti veriyoruz.</p>
@@ -469,18 +475,10 @@
       </div>
     </section>
 
-    <section id="galeri">
+    <section id="galeri" class="section-bg section-bg-alt">
       <div class="container">
         <h2>Mağazamız</h2>
         <p>ALTAY GSM — Ahlat'ta size en iyi hizmeti sunmak için buradayız.</p>
-        <div class="gallery-grid">
-          <div class="gallery-item">
-            <img src="images/magaza-1.jpg" alt="ALTAY GSM mağaza — Telefon aksesuarları vitrin" loading="lazy">
-          </div>
-          <div class="gallery-item">
-            <img src="images/magaza-2.jpg" alt="ALTAY GSM — Teknik servis ve alım satım" loading="lazy">
-          </div>
-        </div>
       </div>
     </section>
 
